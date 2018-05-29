@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <style>
+     .error {color: #FF0000;}
+    </style>
+</head>
+<body>
+     用户名:
+    <input type="text" id="user">
+    <span class="error"id="us"></span>
+    密码:
+    <input type="text" id="password">
+    <span class="error" id="pa"> </span>
+    <input type="button" value="登录" id="btn">
+    <script>
+          $('#btn').click(function(){
+            $.ajax({
+					type:"post",
+					url:"denglu.php",
+					data:{
+						user:$('#user').val(),
+                        pass:$('#password').val()
+					},
+					success:function(res){
+						console.log(res)
+                        alert(res)
+					}
+				});
+          })
+
+    </script>
+</body>
+</html>
