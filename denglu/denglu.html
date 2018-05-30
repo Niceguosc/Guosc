@@ -11,29 +11,26 @@
     </style>
 </head>
 <body>
-     用户名:
-    <input type="text" id="user">
-    <span class="error"id="us"></span>
-    密码:
-    <input type="text" id="password">
-    <span class="error" id="pa"> </span>
-    <input type="button" value="登录" id="btn">
+      账号:<input type="text" id="username"><br/>
+    密码:<input type="password" id="mima"><br/>
+    <input onclick="fn()" type="button" value="按钮"></input>
     <script>
-          $('#btn').click(function(){
+        var  Username = $("#username");
+        var  Mima = $("#mima");
+        console.log(Username);
+        function fn() {
             $.ajax({
-					type:"post",
-					url:"denglu.php",
-					data:{
-						user:$('#user').val(),
-                        pass:$('#password').val()
-					},
-					success:function(res){
-						console.log(res)
-                        alert(res)
-					}
-				});
-          })
-
+                type: "post",
+                url: "dengl.php",
+                data: {
+                    user: Username.val(),
+                    password: Mima.val()
+                },
+                success: function (res) {
+                    alert(res);
+                }
+            });
+        }
     </script>
 </body>
 </html>
