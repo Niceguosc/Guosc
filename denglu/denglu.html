@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>登录</title>
-    <script src="jquery-3.2.1.min.js"></script>
-    <style>
-     .error {color: #FF0000;}
-    </style>
+	<meta charset="UTF-8">
+	<title>Document</title>
 </head>
+<input id="user" type="text" name="" value="">
+<input id="pasw" type="password" name="" value="">
+<input type="button" onclick="fn()" name="" value="登录">
 <body>
-      账号:<input type="text" id="username"><br/>
-    密码:<input type="password" id="mima"><br/>
-    <input onclick="fn()" type="button" value="按钮"></input>
-    <script>
-        var  Username = $("#username");
-        var  Mima = $("#mima");
-        console.log(Username);
-        function fn() {
-            $.ajax({
-                type: "post",
-                url: "dengl.php",
-                data: {
-                    user: Username.val(),
-                    password: Mima.val()
-                },
-                success: function (res) {
-                    alert(res);
-                }
-            });
-        }
-    </script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+function fn(){
+    $.ajax({
+   	    type:'post',
+   	    url:'logo.php',
+   	    data:{
+   	 	    user:$('#user').val(),
+   	 	    password:$('#pasw').val()
+   	    },
+   	    success:function(data){
+          console.log(data);
+            if(data==0)
+            {
+               alert("登录成功"); 
+            }else if(data==1){
+               alert("用户名或密码错误");
+            }else{
+               alert("失败")
+            }
+            
+   	    }
+    })
+}
+</script>
 </body>
 </html>
